@@ -3345,7 +3345,7 @@
             const container = document.getElementById('forumPostList');
             const currentUser = getCurrentUser();
             try {
-                const posts = forumPosts;
+                const posts = [...forumPosts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
                 document.getElementById('statPosts').textContent = posts.length;
                 document.getElementById('forumBadge').textContent = posts.length;
                 if (posts.length === 0) {
